@@ -1,14 +1,14 @@
-import * as React from 'react';
-import Header from '../Header/Header';
+import * as React from "react";
+import Header from "../Header/Header";
 
 class ErrorPage extends React.Component<{}> {
-    public render() {
-        return (
-            <div>
-                <Header title="404 Not Found"/>
-            </div>
-        );
-    }
+  public render() {
+    return (
+      <div>
+        <Header title="404 Not Found" />
+      </div>
+    );
+  }
 }
 
 export default ErrorPage;
