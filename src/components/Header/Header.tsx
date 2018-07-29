@@ -11,7 +11,7 @@ class Header extends React.Component<IHeaderProps, string> {
     public render() {
         return (
             <header className="Header">
-            <h1 className="Header-title">{this.props.title}</h1>
+                <h1 className="Header-title">{this.props.title}</h1>
             </header>
         );
     }

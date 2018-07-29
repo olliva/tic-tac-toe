@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Board from '../Board/Board';
-import Header from '../Header/Header';
-import Main from '../Main/Main';
+import BoardPage from '../BoardPage/BoardPage';
+import ErrorPage from '../ErrorPage/ErrorPage';
+import MainPage from '../MainPage/MainPage';
 
 import './App.css';
 
@@ -30,19 +30,20 @@ class App extends React.Component<{}, IAppState> {
     }
 
     public render() {
-        const MainPage = () => <Main boards={this.state.boards} />;
-        const BoardPage = ({ match }:{match:IBoardURL}) => <Board board={this.state.boards.find(item => item.number === Number(match.params.id))}/>
+        const MainPageRender = () => <MainPage boards={this.state.boards} />;
+        const BoardOrErrorPageRender = ({ match }:{match:IBoardURL}) => {
+            const BoardData = this.state.boards.find(item => item.number === Number(match.params.id));
+
+            return BoardData
+                ? <BoardPage board={BoardData}/>
+                : <ErrorPage />
+        }
 
         return (
             <div className="App">
-                <Header title='Welcome to React' />
-                <p className="App-intro">
-                    To get started, edit <code>src/App.tsx</code> and save to reload.
-                </p>
                 <Switch>
-                    // tslint:disable-next-line jsx-no-lambda
-                    <Route exact={true} path='/' render={MainPage} />
-                    <Route path='/board/:id' render={BoardPage} />
+                    <Route exact={true} path='/' render={MainPageRender} />
+                    <Route path='/board/:id' render={BoardOrErrorPageRender} />
                 </Switch>
             </div>
         );
