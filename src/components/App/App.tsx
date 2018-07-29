@@ -5,6 +5,9 @@ import BoardPage from "../BoardPage/BoardPage";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import MainPage from "../MainPage/MainPage";
 
+import "@atlaskit/css-reset";
+import Page from "@atlaskit/page";
+
 import "./App.css";
 
 class App extends React.Component<{}, IAppState> {
@@ -39,12 +42,12 @@ class App extends React.Component<{}, IAppState> {
     };
 
     return (
-      <div className="App">
+      <Page className="App">
         <Switch>
           <Route exact={true} path="/" render={MainPageRender} />
           <Route path="/board/:id" render={BoardOrErrorPageRender} />
         </Switch>
-      </div>
+      </Page>
     );
   }
 }

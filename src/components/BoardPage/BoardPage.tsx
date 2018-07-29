@@ -1,13 +1,23 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
-import Header from "../Header/Header";
+
+import { BreadcrumbsItem, BreadcrumbsStateless } from "@atlaskit/breadcrumbs";
+import PageHeader from "@atlaskit/page-header";
 
 class BoardPage extends React.Component<IBoardComponent> {
   public render() {
+    const link = () => <Link to="/">Main Page</Link>;
+    const breadcrumbs = (
+      <BreadcrumbsStateless>
+        <BreadcrumbsItem component={link} />
+      </BreadcrumbsStateless>
+    );
+
     return (
       <div>
-        <Header title={this.props.board.name} />
-        <Link to="/">Back</Link>
+        <PageHeader breadcrumbs={breadcrumbs}>
+          {this.props.board.name}
+        </PageHeader>
       </div>
     );
   }

@@ -3,13 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@atlaskit/breadcrumbs": "^6.0.2",
+    "@atlaskit/button": "^9.0.2",
+    "@atlaskit/css-reset": "^3.0.0",
+    "@atlaskit/empty-state": "^3.0.1",
+    "@atlaskit/page": "^8.0.0",
+    "@atlaskit/page-header": "^6.0.0",
     "@types/react-router-dom": "^4.3.0",
     "eclint": "2.8.0",
     "editorconfig": "0.15.0",
     "react": "16.4.1",
     "react-dom": "16.4.1",
     "react-router-dom": "4.3.1",
-    "react-scripts-ts": "2.16.0"
+    "react-scripts-ts": "2.16.0",
+    "styled-components": "^3.3.3"
   },
   "scripts": {
     "start": "react-scripts-ts start",
